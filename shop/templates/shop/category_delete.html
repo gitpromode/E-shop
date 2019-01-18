@@ -6,7 +6,7 @@
                     <h4><a href="#" title="">Category Delete</a></h4>
                 </div>
                 <div class="widget-body">
-                    <form method="POST" action="{% url 'shop:category_delete' object.id%}">{% csrf_token %}
+                    <form method="POST" action="{% url 'shop:category_delete' category.id%}">{% csrf_token %}
                     Click Yes To Delete {{category.name}}
                     <button type="submit">YES</button>
                     </form>
