@@ -65,7 +65,7 @@ class ItemUpdateView(UpdateView):
 
 class ItemDeleteView(DeleteView):
     model = Item
-    template_name = 'shop/item_form.html'
+    template_name = 'shop/item_delete.html'
     form_class = ItemForm
     success_url = reverse_lazy('shop:item_list')
 
