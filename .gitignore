@@ -1,5 +1,6 @@
 db.sqlite3
 
+.idea/*
 .idea/vcs.xml
 .idea/Mart.iml
 .idea/misc.xml
