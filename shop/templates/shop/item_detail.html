@@ -1,50 +1,57 @@
-<div class="formHolder">
-    <div class="widget-info margin-top-large">
-        <div class="widget-head">
-            <div class="widget-body mt-2 horizontalForm">
-                <div class="widget-head">
-                    <h4><a href="#" title="">Item Details</a></h4>
-                </div>
-                <div class="formHolder">
-                    <div class="widget-info margin-top-large">
-                        <div class="widget-head">
-                            <div class="widget-body mt-2 horizontalForm">
-                                <form method="post">{% csrf_token %}
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="inputProjectName">Category Name:</label>
-                                            {{item.category}}
+{% extends 'shop/base.html' %}
+
+<title>{% block title %}Item detail{% endblock %}</title>
+ {% block body %}
+    <div class="formHolder">
+        <div class="widget-info margin-top-large">
+            <div class="widget-head">
+                <div class="widget-body mt-2 horizontalForm">
+                    <div class="widget-head">
+                        <h4><a href="#" title="">Item Details</a></h4>
+                    </div>
+                    <div class="formHolder">
+                        <div class="widget-info margin-top-large">
+                            <div class="widget-head">
+                                <div class="widget-body mt-2 horizontalForm">
+                                    <form method="post">{% csrf_token %}
+                                        <div class="form-row">
+                                            <table id="gallery" class="table table-bordered">
+                                                <div class="form-group col-md-12">
+                                                    <label for="inputProjectName">Category Name:</label>
+                                                    {{item.category}}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputprovince">Name:</label>
+                                                    {{ item.name }}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputDistrict">Description:</label>
+                                                    {{ item.description }}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputLocalGovernment">Price:</label>
+                                                    {{ item.price }}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputCapacity">Available:</label>
+                                                    {{item.available }}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputRiverName">Created:</label>
+                                                    {{item.created_at}}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputLicenseNumber">Updated:</label>
+                                                    {{item.updated_at}}
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="inputIssueDateYears">Image:</label>
+                                                    {{item.image}}
+                                                </div>
+                                            </table>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputprovince">Name:</label>
-                                            {{ item.name }}
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputDistrict">Description:</label>
-                                            {{ item.description }}
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputLocalGovernment">Price:</label>
-                                            {{ item.price }}
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputCapacity">Available:</label>
-                                            {{item.available }}
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputRiverName">Created:</label>
-                                            {{item.created_at}}
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputLicenseNumber">Updated:</label>
-                                            {{item.updated_at}}
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="inputIssueDateYears">Image:</label>
-                                            {{item.image}}
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,4 +59,4 @@
             </div>
         </div>
     </div>
-</div>
+{% endblock %}

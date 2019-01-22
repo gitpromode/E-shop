@@ -1,33 +1,38 @@
-<div class="d-flex justify-content-center">
-    <div class="col-md-2 col-lg-9"><a href="{% url 'shop:category_list' %}" title=""
-                                      class="btn btn-sm btn-xs btn-primary"><i
-            class="la la-plus"></i>Category List</a><br><br>
-        <div class="dash-right">
-            <div class="widget-info margin-top-large">
-                <table id="gallery" class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>S.N</th>
-                        <th>Title</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for item in category_item %}
-                    <tr>
-                        <td class="filterable-cell">{{forloop.counter}}</td>
-                        <td class="filterable-cell"><a href="{% url 'shop:item_detail' item.pk %}">{{ item.name }}</a></td>
-                        <td class="filterable-cell"><a href="{% url 'shop:item_edit' item.pk %}">Edit</a></td>
-                        <td class="filterable-cell"><a href="{% url 'shop:item_delete' item.pk %}">Delete</a></td>
-                    </tr>
-                    {%endfor%}
-                    </tbody>
-                </table><br>
-                <div class="col-md-2 col-lg-9"><a href="{% url 'shop:item_add' category_pk %}" title=""
-                                      class="btn btn-sm btn-xs btn-primary"><i class="la la-plus"></i>Add New Material</a>
+{% extends 'shop/base.html' %}
+
+<title>{% block title %}Category item{% endblock %}</title>
+{% block body %}    
+    <div class="d-flex justify-content-center">
+        <div class="col-md-2 col-lg-9"><a href="{% url 'shop:category_list' %}" title=""
+                                          class="btn btn-sm btn-xs btn-primary"><i
+                class="la la-plus"></i>Category List</a><br><br>
+            <div class="dash-right">
+                <div class="widget-info margin-top-large">
+                    <table id="gallery" class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Title</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in category_item %}
+                        <tr>
+                            <td class="filterable-cell">{{forloop.counter}}</td>
+                            <td class="filterable-cell"><a href="{% url 'shop:item_detail' item.pk %}">{{ item.name }}</a></td>
+                            <td class="filterable-cell"><a href="{% url 'shop:item_edit' item.pk %}">Edit</a></td>
+                            <td class="filterable-cell"><a href="{% url 'shop:item_delete' item.pk %}">Delete</a></td>
+                        </tr>
+                        {%endfor%}
+                        </tbody>
+                    </table><br>
+                    <div class="col-md-2 col-lg-9"><a href="{% url 'shop:item_add' category_pk %}" title=""
+                                          class="btn btn-sm btn-xs btn-primary"><i class="la la-plus"></i>Add New Material</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+{% endblock %}
