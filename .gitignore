@@ -7,4 +7,4 @@ db.sqlite3
 .idea/modules.xml
 .idea/workspace.xml
 
-.cpython-35.pyc
+*.pyc
