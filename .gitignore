@@ -6,3 +6,5 @@ db.sqlite3
 .idea/misc.xml
 .idea/modules.xml
 .idea/workspace.xml
+
+.cpython-35.pyc

@@ -1,11 +1,13 @@
+Babel==2.6.0
 Django==2.1.5
+django-phonenumber-field==2.1.0
 djangorestframework==3.9.0
 jsonfield==2.0.2
+phonenumbers==8.10.3
 Pillow==5.4.1
 pip==18.1
 pytz==2018.9
 setuptools==40.6.3
 wheel==0.32.3
 
-Babel==2.6.0
-phonenumbers==8.10.3
+mart/local_settings.py

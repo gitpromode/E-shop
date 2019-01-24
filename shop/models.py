@@ -37,18 +37,18 @@ class Item(models.Model):
 
 
 class Unit(models.Model):
-    label= models.CharField(max_length=15, db_index=True)
+    label = models.CharField(max_length=15, db_index=True)
 
     class Meta:
-        ordering = ('label')
+        ordering = ('label',)
 
     def __str__(self):
         return self.label
 
 
 class UnitConversion(models.Model):
-    from_unit = models.ForeignKey(Unit, related_name='from', on_delete=models.CASCADE)
-    to_unit = models.ForeignKey(Unit, related_name='to', on_delete=models.CASCADE)
+    from_unit = models.ForeignKey(Unit, related_name='from_units', on_delete=models.CASCADE)
+    to_unit = models.ForeignKey(Unit, related_name='to_units', on_delete=models.CASCADE)
     number_of_multiples = models.ForeignKey(Unit, related_name='numbers', on_delete=models.CASCADE)
 
 
@@ -59,7 +59,7 @@ class Customer(models.Model):
     location = PointField(null=True, blank=True)
 
     class Meta:
-        ordering = ('name')
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
