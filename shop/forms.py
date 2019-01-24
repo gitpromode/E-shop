@@ -5,11 +5,11 @@ class CategoryForm(forms.ModelForm):
 
     class Meta:
         model = Category
-        fields = ('name',)
+        fields = ('name', 'parentId',)
 
 
 class ItemForm(forms.ModelForm):
 
     class Meta:
         model = Item
-        fields = ('category', 'name', 'description', 'price', 'available', 'brand', 'image',)
+        fields = ('name', 'description', 'price', 'available', 'brand', 'image',)

@@ -7,9 +7,10 @@ from django.contrib.gis.db.models import PointField
 
 class Category(models.Model):
     name = models.CharField(max_length=150, db_index=True)
+    parentId = models.ForeignKey("self", related_name='sub_categories', on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ('name', )
+        unique_together = ('name', 'parentId',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 

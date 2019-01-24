@@ -6,8 +6,11 @@ jsonfield==2.0.2
 phonenumbers==8.10.3
 Pillow==5.4.1
 pip==18.1
+postgis==1.0.4
+psycopg2==2.7.7
 pytz==2018.9
 setuptools==40.6.3
 wheel==0.32.3
 
 mart/local_settings.py
+.cpython-35.pyc
