@@ -6,6 +6,8 @@ db.sqlite3
 .idea/misc.xml
 .idea/modules.xml
 .idea/workspace.xml
+shop/.idea/*
 
 *.pyc
-mart/local_settings.py
+node_modules/*
+local_settings.py

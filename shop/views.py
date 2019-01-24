@@ -1,7 +1,5 @@
-from django.shortcuts import render
-from django.shortcuts import reverse, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.views import generic
 from django.views.generic import TemplateView
 from .models import Category, Item
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
