@@ -58,9 +58,34 @@ class Customer(models.Model):
     address = models.CharField(max_length=100, db_index=True)
     phone_number = PhoneNumberField(null=True, blank=True)
     location = PointField(null=True, blank=True)
+    active_inactive = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('name',)
 
     def __str__(self):
         return self.name
+
+
+class Sale(models.Model):
+    bill_number = models.IntegerField(default=0, null=True, blank=True)
+    date = models.DateTimeField(auto_now=True)
+    customer = models.ForeignKey(Customer, related_name='sales', on_delete=models.SET)
+    receive_amount = models.IntegerField(default=0, null=True, blank=True)
+    return_amount = models.IntegerField(default=0, null=True, blank=True)
+    due_amount = models.IntegerField(default=0, null=True, blank=True)
+    total_amount = models.IntegerField(default=0, null=True, blank=True)
+
+    class Meta:
+        ordering = ('bill_num',)
+
+    def __str__(self):
+        return self.bill_number
+
+
+class Row(models.Model):
+    sale = models.ForeignKey(Sale, related_name='rows', on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, related_name='rows', on_delete=models.CASCADE)
+    quantity = models.DecimalField(max_digits=2, decimal_places=0, null=True)
+    unit = models.ForeignKey(Unit, related_name='rows', on_delete=models.SET)
+    discount = models.DecimalField(max_digits=6, decimal_places=2)
