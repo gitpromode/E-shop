@@ -34,7 +34,7 @@ class CustomerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Customer
-        fields = ('name', 'address', 'customer', 'phone_number', 'location', 'active_inactive',)
+        fields = ('name', 'address', 'phone_number', 'location', 'active_inactive',)
 
 
 class SaleSerializer(serializers.ModelSerializer):
