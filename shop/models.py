@@ -77,10 +77,7 @@ class Sale(models.Model):
     total_amount = models.IntegerField(default=0, null=True, blank=True)
 
     class Meta:
-        ordering = ('bill_num',)
-
-    def __str__(self):
-        return self.bill_number
+        ordering = ('bill_number',)
 
 
 class Row(models.Model):
