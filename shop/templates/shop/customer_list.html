@@ -1,0 +1,37 @@
+{% extends 'mart/base.html' %}
+
+<title>{% block title %}Customer List{% endblock %}</title>
+{% block body %}
+    <div class="d-flex justify-content-center">
+        <div class="dash-right">
+            <div class="widget-info margin-top-large">
+                <div class="widget-head">
+                        <h4><a href="#" title="">Customer List</a></h4>
+                    </div>
+                <table id="gallery" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>S.N</th>
+                        <th>Name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for customer in customer_list %}
+                    <tr>
+                        <td class="filterable-cell">{{forloop.counter}}</td>
+                        <td class="filterable-cell"><a href="{% url 'shop:customer_detail' customer.pk %}">{{ customer.name }}</a></td>
+                        <td class="filterable-cell"><a href="{% url 'shop:customer_edit' customer.pk %}">Edit</a></td>
+                        <td class="filterable-cell"><a href="{% url 'shop:customer_delete' customer.pk %}">Delete</a></td>
+                    </tr>
+                    {%endfor%}
+                    </tbody>
+                </table><br>
+                <div class="col-md-2 col-lg-9"><a href="{% url 'shop:customer_add' %}" title=""
+                                      class="btn btn-sm btn-xs btn-primary"><i class="fa fa-plus"></i>Add New Customer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

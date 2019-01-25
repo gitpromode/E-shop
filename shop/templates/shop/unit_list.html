@@ -1,0 +1,37 @@
+{% extends 'mart/base.html' %}
+
+<title>{% block title %}Unit List{% endblock %}</title>
+{% block body %}
+    <div class="d-flex justify-content-center">
+        <div class="dash-right">
+            <div class="widget-info margin-top-large">
+                <div class="widget-head">
+                        <h4><a href="#" title="">Unit List</a></h4>
+                    </div>
+                <table id="gallery" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>S.N</th>
+                        <th>Label</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for unit in unit_list %}
+                    <tr>
+                        <td class="filterable-cell">{{forloop.counter}}</td>
+                        <td class="filterable-cell"><a href="{% url 'shop:unit_detail' unit.pk %}">{{ unit.label }}</a></td>
+                        <td class="filterable-cell"><a href="{% url 'shop:unit_edit' unit.pk %}">Edit</a></td>
+                        <td class="filterable-cell"><a href="{% url 'shop:unit_delete' unit.pk %}">Delete</a></td>
+                    </tr>
+                    {%endfor%}
+                    </tbody>
+                </table><br>
+                <div class="col-md-2 col-lg-9"><a href="{% url 'shop:unit_add' %}" title=""
+                                      class="btn btn-sm btn-xs btn-primary"><i class="fa fa-plus"></i>Add New Unit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

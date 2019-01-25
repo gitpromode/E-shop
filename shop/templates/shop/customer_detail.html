@@ -1,0 +1,40 @@
+{% extends 'mart/base.html' %}
+
+<title>{% block title %}Customer Detail{% endblock %}</title>
+{% block body %}
+<div class="formHolder">
+    <div class="widget-info margin-top-large">
+        <div class="widget-head">
+            <form class="widget-body mt-2 horizontalForm">
+                <div class="widget-head">
+                    <h4><a href="#" title="">Customer Details</a></h4>
+                </div>
+                <form method="post">{% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputCustomerName">Name :</label>
+                            {{ customer.name  }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCustomerAddress">Address :</label>
+                            {{ customer.address }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCustomerPhoneNumber">Phone Number :</label>
+                            {{ customer.phone_number }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputActiveInactive">Active/Inactive :</label>
+                            {{ customer.active_inactive }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputLocation">Location :</label>
+                            {{ customer.location }}
+                        </div>
+                    </div>
+                </form>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

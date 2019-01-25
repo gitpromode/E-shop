@@ -1,9 +1,9 @@
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
-from .models import Category, Item
+from .models import Category, Item, Unit, UnitConversion, Customer
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import CategoryForm, ItemForm
+from .forms import CategoryForm, ItemForm, UnitForm, CustomerForm
 
 # Create your views here.
 
@@ -121,6 +121,96 @@ class ItemDeleteView(DeleteView):
     def get_success_url(self):
             success_url = reverse_lazy('shop:category_item', args=(self.object.category.pk,))
             return success_url
+
+
+class UnitListView(ListView):
+    """
+        Unit List View
+    """
+    model = Unit
+    template_name = 'shop/unit_list.html'
+
+
+class UnitDetailView(DetailView):
+    """
+        Unit Detail View
+    """
+    model = Unit
+    template_name = 'shop/unit_detail.html'
+
+
+class UnitCreateView(CreateView):
+    """
+        Unit Create View
+    """
+    model = Unit
+    template_name = 'shop/unit_form.html'
+    form_class = UnitForm
+    success_url = reverse_lazy('shop:unit_list')
+
+
+class UnitUpdateView(UpdateView):
+    """
+        Unit Update View
+    """
+    model = Unit
+    template_name = 'shop/unit_form.html'
+    form_class = UnitForm
+    success_url = reverse_lazy('shop:unit_list')
+
+
+class UnitDeleteView(DeleteView):
+    """
+        Unit Delete View
+    """
+    model = Unit
+    template_name = 'shop/unit_delete.html'
+    success_url = reverse_lazy('shop:unit_list')
+
+
+class CustomerListView(ListView):
+    """
+        Customer List View
+    """
+    model = Customer
+    template_name = 'shop/customer_list.html'
+
+
+class CustomerDetailView(DetailView):
+    """
+        Customer Detail View
+    """
+    model = Customer
+    template_name = 'shop/customer_detail.html'
+
+
+class CustomerCreateView(CreateView):
+    """
+        Customer Create View
+    """
+    model = Customer
+    template_name = 'shop/customer_form.html'
+    form_class = CustomerForm
+    success_url = reverse_lazy('shop:customer_list')
+
+
+class CustomerUpdateView(UpdateView):
+    """
+        Customer Update View
+    """
+    model = Customer
+    template_name = 'shop/customer_form.html'
+    form_class = CustomerForm
+    success_url = reverse_lazy('shop:customer_list')
+
+
+class CustomerDeleteView(DeleteView):
+    """
+        Customer Delete View
+    """
+    model = Customer
+    template_name = 'shop/customer_delete.html'
+    success_url = reverse_lazy('shop:customer_list')
 
 
 

@@ -1,0 +1,19 @@
+{% extends 'mart/base.html' %}
+
+<title>{% block title %}Unit Detail{% endblock %}</title>
+{% block body %}
+    <div class="formHolder">
+        <div class="widget-info margin-top-large">
+            <div class="widget-head">
+                <div class="widget-body mt-2 horizontalForm">
+                    <div class="widget-head">
+                        <h4><a href="#" title="">Unit</a></h4>
+                    </div>
+                    <div class="widget-body">
+                        {{unit.label}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
